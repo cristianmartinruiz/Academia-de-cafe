@@ -1,13 +1,7 @@
-/** 
+/** COLOR CODES Gold: #c79c60;*/
 
 
-COLOR CODES
-  Gold: #c79c60;
-*/
-
-/** Preloader 
-* https://ihatetomatoes.net/create-custom-preloading-screen/
-*/
+/** Animacion */
 #loader-wrapper {
     position: fixed;
     top: 0;
@@ -62,7 +56,11 @@ COLOR CODES
     -webkit-animation: spin 1.5s linear infinite; /* Chrome, Opera 15+, Safari 5+ */
       animation: spin 1.5s linear infinite; /* Chrome, Firefox 16+, IE 10+, Opera */
 }
+/** Fin Animacion */
 
+
+
+/** Animaciones de Rotacion */
 @-webkit-keyframes spin {
     0%   { 
         -webkit-transform: rotate(0deg);  /* Chrome, Opera 15+, Safari 3.1+ */
@@ -87,7 +85,11 @@ COLOR CODES
         transform: rotate(360deg);  /* Firefox 16+, IE 10+, Opera */
     }
 }
+/** fin Animaciones de Rotacion */
 
+
+
+/* Secciones de la Animacion */
 #loader-wrapper .loader-section {
     position: fixed;
     top: 0;
@@ -107,8 +109,11 @@ COLOR CODES
 #loader-wrapper .loader-section.section-right {
     right: 0;
 }
+/* Fin Secciones de la Animacion */
 
-/* Loaded */
+
+
+/* Transiciones de la Animacion */
 .loaded #loader-wrapper .loader-section.section-left {
     -webkit-transform: translateX(-100%);  /* Chrome, Opera 15+, Safari 3.1+ */
         -ms-transform: translateX(-100%);  /* IE 9 */
@@ -142,8 +147,16 @@ COLOR CODES
     -webkit-transition: all 0.3s 1s ease-out;  
             transition: all 0.3s 1s ease-out;
 }
-/* end Preloader */
+/* Final Transiciones de la Animacion */
+/* Final de la Animacion  */
 
+/* Logo  */
+.tm-site-logo {
+  width: 180px; /* Ajusta el ancho según tus necesidades */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+/* Estilos Generales  */
 body { overflow-x: hidden; }
 ul { 
   margin: 0; 
@@ -167,7 +180,19 @@ ul {
   margin: 0 10px;  
 }
 .tm-logo-container { padding: 10px 0; }
-.tm-nav {
+/* Fin Estilos Generales  */
+
+
+/* Navegacion  */
+@font-face {
+  font-family: 'Hero';
+  src: url('../fonts/HeroLight-Bold.woff2') format('woff2'),
+       url('../fonts/HeroLight-Bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+/* Navegacion  */
+.tm-nav, .tm-nav * {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -177,8 +202,10 @@ ul {
       -ms-flex-align: center;
           align-items: center;
   font-weight: 700;
-  text-transform: uppercase;  
+  text-transform: uppercase;
+  font-family: 'Hero', sans-serif 
 }
+
 .tm-nav li {
   list-style: none;
   float: left;
@@ -197,10 +224,25 @@ ul {
   text-decoration: none;
 }
 .tm-nav li a.active {
-  background: url(../img/logo.png) no-repeat, url(../img/nav-underline.png) no-repeat;
-  background-size: 20px, 74px 17px;
-  background-position: 0% 30%, center bottom;
+  background-size: 60px, 222px 51px;
+  background-position: 100% 100%, center bottom;
 }
+/* Fin Navegacion  */
+
+/* la fuente para seccion los titulos en la seccion principal */
+.tm-section-header {
+  font-family: 'Hero', sans-serif;
+  white-space: nowrap; /* Evita el salto de línea */
+}
+/* Mantener la forma circular de la imagen */
+.img-circle {
+  border-radius: 50%;
+  width: 150px; /* Ajusta el tamaño según sea necesario */
+  height: 150px; /* Ajusta el tamaño según sea necesario */
+  object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
+}
+
+
 .tm-top-header-inner {
   display: -webkit-box;
   display: -webkit-flex;
@@ -217,6 +259,7 @@ ul {
 .tm-section { margin-bottom: 60px; }
 .tm-section-margin-bottom-0 { margin-bottom: 0; }
 
+
 /* Welcome */
 .center-images {
   display: flex;
@@ -225,38 +268,39 @@ ul {
   flex-direction: column;
   text-align: center;
 }
-
-
-
 .white-text { color: white; }
 .blue-text { color: #0066CC; }
 .gold-text { color: #c79c60; }
 .gray-text { color: #949494; }
 .green-text { color: #30A430; }
 .tm-welcome-header { font-size: 56px; }
+
+
 /* Estilo para la imagen de fondo en index.html */
 .tm-welcome-section {
   background-image: url('../img/fondo.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh; /* Ajusta la altura según tus necesidades */
+  height: 100vh; 
   width: 100%;
   position: relative;
   z-index: 1;
 }
 
+
 /* Estilo para la imagen de fondo en menu.html */
 .tm-welcome-section-menu {
-  background-image: url('../img/menu.jpg'); /* Cambia a la nueva imagen que desees */
+  background-image: url('../img/menu.jpg'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh; /* Ajusta la altura según tus necesidades */
+  height: 100vh; 
   width: 100%;
   position: relative;
   z-index: 1;
 }
+
 
 /* Estilo para la imagen de fondo en clases.html */
 .tm-welcome-section-clases {
@@ -270,6 +314,8 @@ ul {
   z-index: 1;
 }
 
+
+/* Contenedor de Bienvenida  */
 .tm-welcome-section .container {
   position: relative;
   z-index: 2;
@@ -282,7 +328,7 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); /* Ajusta la opacidad según tus necesidades */
+  background: rgba(0, 0, 0, 0.5); 
   z-index: 1;
 }
 .tm-welcome-header-2 {
@@ -345,7 +391,14 @@ ul {
   width: 100%;
 }
 
-/* Main content */
+.img-responsive {
+  margin-left: 0;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Contenido Principal y Pie de Página */
 .light-gray-bg { background-color: #e4e4e4; }
 .tm-main-section { padding-top: 170px; }
 .img-thumbnail { padding: 8px; }
@@ -412,9 +465,17 @@ ul {
   background-size: 100% 100%;
   max-width: 294px;
   margin-top: 30px;  
-  margin-bottom: 80px;
+  margin-bottom: 40px;
+  padding: 20px; /* Añade padding para dar espacio interno */
+  transition: box-shadow 0.3s ease; /* Añade una transición suave */
 }
-.tm-popular-item-img { margin-left: 3px; }
+.tm-popular-item-img {
+  width: 100%; /* Ajusta el ancho según sea necesario */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
+  border-radius: 9px; /* Añade bordes redondeados si lo deseas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade sombra si lo deseas */
+}
 .tm-popular-items-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -451,7 +512,9 @@ ul {
   -webkit-transition: all 0.3s ease;
           transition: all 0.3s ease;
 }
-.tm-popular-item:hover { background-image: url(../img/popular-item-bg-hover.png); }
+.tm-popular-item:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Modifica la sombra cuando el cursor está encima */
+}
 .tm-popular-item:hover .tm-popular-item-title { color: #c79c60; }
 .tm-popular-item:hover hr {
   border-color: #c79c60;
@@ -463,6 +526,10 @@ ul {
   color: #c79c60;
   text-decoration: none;
 }
+
+/* ------------------------------------------------------------*/
+
+
 /* Ajustar el tamaño de la imagen en cursos.html */
 .tm-popular-item-img {
   max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
@@ -562,7 +629,9 @@ ul {
           justify-content: space-between;
 }
 
-/* http://stackoverflow.com/questions/488830/ol-with-numbers-another-color */
+
+
+/* Listas Ordenadas */
 ol { counter-reset: item }
 ol li { display: block }
 ol li:before { 
@@ -571,6 +640,9 @@ ol li:before {
   color: #c79c60; 
   font-weight: 700;
 }
+
+
+/* Contenedores y Secciones */
 .tm-section-header-container {
   display: -webkit-box;
   display: -webkit-flex;
@@ -581,16 +653,28 @@ ol li:before {
       -ms-flex-align: end;
           align-items: flex-end;
 }
-/*http://stackoverflow.com/questions/1032914/how-to-make-a-div-to-fill-a-remaining-horizontal-space-a-very-simple-but-annoyi*/
-.tm-section-header { width: 350px; }
-.tm-hr-container {
-  width: 100%;
-  height: 41px;
+
+.tm-section-header {
+  margin: 0; /* Elimina el margen del encabezado */
+  padding-right: 20px; /* Añade un espacio entre el encabezado y la línea */
 }
-.tm-hr { border-color: #c79c60; }
+
+.tm-hr-container {
+  flex-grow: 1; /* Permite que la línea ocupe el espacio restante */
+}
+
+.tm-hr {
+  border: 0;
+  height: 1px; /* Ajusta la altura de la línea */
+  background: #c79c60; /* Color de la línea */
+  width: 100%; /* Ajusta el ancho de la línea */
+}
+
 .tm-daily-menu-container { overflow: hidden; }
 
-/* Menu */
+
+
+/* Menu Lateral*/
 .tm-side-menu {
   color: white;
   width: 242px;
@@ -618,6 +702,11 @@ ol li:before {
   color: #c79c60;
   text-decoration: none;
 }
+
+
+
+
+/* Productos */
 .tm-product {
   margin-right: 0;
   margin-left: auto;
@@ -696,6 +785,9 @@ ol li:before {
   top: 24px;
   left: 22px;
 }
+
+
+/* Formularios y Botones */
 .form-control {
   border-color: #c79c60;
   border-radius: 10px;
@@ -717,6 +809,111 @@ button.tm-more-button {
   border-radius: 10px;
 }
 
+
+/* Carrusel reseñas */
+/* PRODUCTS */
+.product {
+  position: relative;
+  overflow: hidden;
+  padding: 20px;
+}
+
+.product-category {
+  padding: 0 10vw;
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 40px;
+  text-transform: capitalize;
+}
+
+.product-container {
+  padding: 0 10vw;
+  display: flex;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.tm-section-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px; /* Agrega un margen inferior */
+}
+
+.product-container::-webkit-scrollbar {
+  display: none;
+}
+
+.product-card {
+  flex: 0 0 auto;
+  width: 250px;
+  height: 450px;
+  margin-right: 40px;
+  position: relative;
+}
+
+.product-image {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.product-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  position: absolute;
+  bottom: 160px; /* Ajusta este valor para bajar el texto */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Ajusta para centrar correctamente */
+  width: calc(90% - 45px); /* Ajusta el ancho para que no se salga del contenedor */
+  padding: 0; /* Elimina el padding */
+  background: none; /* Elimina el fondo gris */
+  color: rgb(171, 170, 170); /* Mantén el color del texto */
+  text-align: center; /* Centra el texto */
+  box-sizing: border-box;
+}
+
+
+.product-info h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.product-info p {
+  margin: 5px 0 0;
+  font-size: 12px;
+}
+
+.pre-btn, .nxt-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  color: white;
+  font-size: 24px;
+}
+
+.pre-btn {
+  left: 10px;
+}
+
+.nxt-btn {
+  right: 10px;
+}
+
+
+
+/* Estilos Responsives */
 @media screen and (max-width: 991px) {
   .tm-welcome-content { margin-bottom: 250px; }
   .tm-main-section { padding-top: 200px; }
@@ -822,4 +1019,27 @@ button.tm-more-button {
 
 @media screen and (max-width: 370px) {
   .tm-welcome-content { margin-bottom: 60px; }
+}
+
+
+/* Estilos Responsives carrusel */
+
+@media (max-width: 1023px) {
+  .slider-wrapper .slider-button {
+    display: none!important;
+  }
+
+  .slider-wrapper .image-list {
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+
+  .slider-wrapper .image-list .image-item {
+    width: 280px;
+    height: 380px;
+  }
+
+  .slider-scrollbar .scrollbar-thumb {
+    width: 20%;
+  }
 }
