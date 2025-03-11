@@ -233,13 +233,14 @@ ul {
 .tm-section-header {
   font-family: 'Hero', sans-serif;
   white-space: nowrap; /* Evita el salto de línea */
+  margin: 0;
+  padding-right: 20px;
 }
-/* Mantener la forma circular de la imagen */
-.img-circle {
-  border-radius: 50%;
-  width: 150px; /* Ajusta el tamaño según sea necesario */
-  height: 150px; /* Ajusta el tamaño según sea necesario */
-  object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
+
+
+/* Estilos para los <li>*/
+li::marker {
+  color: #c79c60; /* Cambia este valor por el color que desees */
 }
 
 
@@ -314,6 +315,18 @@ ul {
   z-index: 1;
 }
 
+/* Estilo para la imagen de fondo en empresas.html */
+.tm-welcome-section-empresas {
+  background-image: url('../img/empresasfondo.jpg'); /* Cambia a la nueva imagen que desees */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; /* Ajusta la altura según tus necesidades */
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
 
 /* Contenedor de Bienvenida  */
 .tm-welcome-section .container {
@@ -340,10 +353,31 @@ ul {
   margin: 150px auto 350px;
   max-width: 650px;
 }
-.tm-welcome-description { text-align: justify; }
-.tm-welcome-img-container { text-align: right; }
-.tm-more-button-welcome { margin: 40px auto; }
+
+.tm-about-img {
+  object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
+}
+/* Ajusta el tamaño de la imagen about2.jpg */
+.tm-about-img-small {
+  width: 50%; /* Ajusta el ancho para que sea más pequeña */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.tm-welcome-img-container {
+  text-align: right;
+  display: flex;
+  align-items: flex-start; /* Alinea la imagen con la parte superior del texto */
+  margin-top: 30px; /* Ajusta este valor para bajar la imagen */
+}
+
+.tm-welcome-description { 
+  text-align: justify;}
+
+.tm-more-button-welcome { 
+  margin: 40px auto; }
+
 .tm-more-button {  
+
   display: -webkit-box;  
   display: -webkit-flex;  
   display: -ms-flexbox;  
@@ -397,6 +431,8 @@ ul {
   max-width: 100%;
   height: auto;
 }
+
+
 
 /* Contenido Principal y Pie de Página */
 .light-gray-bg { background-color: #e4e4e4; }
@@ -527,6 +563,15 @@ ul {
   text-decoration: none;
 }
 
+.tm-popular-item-title {
+  white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+  overflow: center; /* Oculta cualquier desbordamiento de texto */
+  text-overflow: ellipsis; /* Añade puntos suspensivos si el texto es demasiado largo */
+  src: url('../fonts/HeroLight-Bold.woff2') format('woff2'),
+  url('../fonts/HeroLight-Bold.woff') format('woff');  font-size: 24px; /* Ajusta el tamaño de la fuente según tus necesidades */  font-size: 22px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  font-size: 20px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  font-weight: bold; /* Ajusta el peso de la fuente según tus necesidades */
+}
 /* ------------------------------------------------------------*/
 
 
@@ -539,9 +584,10 @@ ul {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade sombra si lo deseas */
 }
 .tm-popular-item-title {
-  font-size: 34px;
-  margin-top: 0;
-  margin-bottom: 0;
+  font-family: 'Hero';
+  src: url('../fonts/HeroLight-Bold.woff2') format('woff2'),
+       url('../fonts/HeroLight-Bold.woff') format('woff');  font-size: 24px; /* Ajusta el tamaño de la fuente según tus necesidades */
+  font-weight: bold; /* Ajusta el peso de la fuente según tus necesidades */
 }
 .tm-popular-item-hr {
   margin-top: 0;
@@ -549,27 +595,7 @@ ul {
 }
 .bigger-first-letter { font-size: 60px; }
 .order-now-container {
-  width: 100px;
-  height: 100px;
-  background-color: rgb(82, 76, 76);
-  border-radius: 50%;
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  color: white;
-  position: absolute;
-  left: 92px;
-  bottom: -50px;
+  display: none; /* Oculta el contenedor que contiene los círculos */
 }
 .tm-special-item {
   display: inline-block;
@@ -643,16 +669,19 @@ ol li:before {
 
 
 /* Contenedores y Secciones */
-.tm-section-header-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: end;
-  -webkit-align-items: flex-end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+
+.tm-welcome-description {
+  margin-top: 30px; /* Añade un margen superior al párrafo */
 }
+
+.tm-section-header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px; /* Añade un margen inferior al contenedor del encabezado */
+}
+
+
 
 .tm-section-header {
   margin: 0; /* Elimina el margen del encabezado */
@@ -661,6 +690,7 @@ ol li:before {
 
 .tm-hr-container {
   flex-grow: 1; /* Permite que la línea ocupe el espacio restante */
+  margin-top: 0px; /* Ajusta el margen superior según sea necesario */
 }
 
 .tm-hr {
@@ -668,9 +698,39 @@ ol li:before {
   height: 1px; /* Ajusta la altura de la línea */
   background: #c79c60; /* Color de la línea */
   width: 100%; /* Ajusta el ancho de la línea */
+  margin: 0;
 }
 
-.tm-daily-menu-container { overflow: hidden; }
+.tm-welcome-img-container-left {
+  text-align: left;
+  margin-bottom: 30px; /* Añade un margen inferior al contenedor de la imagen */
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+
+.img-thumbnail {
+  padding: 4px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  max-width: 100%; /* Asegura que la imagen no sobrepase el contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.tm-about-img {
+  width: 100%; /* Ajusta el ancho para que ocupe todo el contenedor */
+  height: auto; /* Mantiene la proporción de la imagen */
+  object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
+}
+
+.tm-section-content {
+  margin-top: 90px; /* Añade un margen superior al contenido */
+}
+
+
 
 
 
