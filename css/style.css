@@ -290,19 +290,6 @@ li::marker {
 }
 
 
-/* Estilo para la imagen de fondo en menu.html */
-.tm-welcome-section-menu {
-  background-image: url('../img/menu.jpg'); 
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh; 
-  width: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-
 /* Estilo para la imagen de fondo en clases.html */
 .tm-welcome-section-clases {
   background-image: url('../img/lessons.jpg'); /* Cambia a la nueva imagen que desees */
@@ -327,6 +314,17 @@ li::marker {
   z-index: 1;
 }
 
+/* Estilo para la imagen de fondo en contacto.html */
+.tm-welcome-section-contacto {
+  background-image: url('../img/contactofondo.jpg'); /* Cambia a la nueva imagen que desees */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh; 
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
 
 /* Contenedor de Bienvenida  */
 .tm-welcome-section .container {
