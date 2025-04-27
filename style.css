@@ -1,0 +1,69 @@
+body {
+    font-family: Hero;
+    margin: 0;
+    padding: 0;
+}
+@font-face {
+    font-family: 'Hero';
+    src: url('../fonts/HeroLight-Bold.woff2') format('woff2'),
+         url('../fonts/HeroLight-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+ 
+ /* -----------------------------------------------------------------------------------
+                                            HEADER 
+--------------------------------------------------------------------------------------*/
+/* Estilos general para el header */
+#header {
+    font-family: Hero;
+    max-width: 100%; /* Ancho máximo del header */
+    height: 100px; /* Altura del header */
+    top: 0; /* Posición en la parte superior */
+    background-color: black; /* Fondo */
+    color: white; /* Color del texto */
+}    
+
+/* Estilo de la caja que contiene el logo y los botones */
+#header .box-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px; /* Reduce el espacio entre el logo y el menú */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+    height: 100px;
+}
+
+/* Estilo de los botones */
+#header a {
+    padding: 0; /* Elimina el padding predeterminado */
+    margin: 0; /* Elimina el margen predeterminado */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    text-transform: uppercase;    
+    color: white; /* Color del texto */
+    font-size: 15px; /* Tamaño de la fuente */
+    font-weight: 200; /* Peso de la fuente */
+}
+
+#header ul {
+    display: flex; /* Hace que los elementos del menú estén en línea */
+    list-style: none; /* Elimina los puntos de la lista */
+    gap: 40px; /* Aumenta el espacio entre los elementos */
+}
+
+#header li a:hover, li a:focus {  
+  color: #c79c60;
+  text-decoration: none;
+}
+
+#header li a.active {  
+    color: #c79c60;
+    text-decoration: none;
+}
+
+ /* -----------------------------------------------------------------------------------
+                                        FIN HEADER 
+--------------------------------------------------------------------------------------*/
