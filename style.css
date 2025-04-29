@@ -12,7 +12,7 @@ body {
   }
  
  /* -----------------------------------------------------------------------------------
-                                            HEADER 
+                                            HEADER Y WELLCOME AREA GENERAL
 --------------------------------------------------------------------------------------*/
 /* Estilos general para el header */
 #header {
@@ -64,6 +64,104 @@ body {
     text-decoration: none;
 }
 
+ /* ------------------------------------------------------------------------------------*/
+
+
+/* contenedor general */
+.welcome-container {
+    position: relative; /* Hace que los elementos hijos con position: absolute se posicionen relativos a este contenedor */
+    width: 100%;
+    height: 100vh; /* La altura será igual a la altura de la pantalla */
+    overflow: hidden; /* Asegura que no haya contenido que se salga del contenedor */
+}
+
+/* contenedor imagen */
+.welcome-container img {
+    width: 100%;
+    height: 100%; /* La imagen ocupará toda la altura del contenedor */
+    object-fit: cover; /* Asegura que la imagen se recorte proporcionalmente para llenar el contenedor */
+    display: block; /* Elimina el espacio extra debajo de la imagen */
+}
+
+/* capa (overlay) oscura encima de la imagen */
+.welcome-container::before {
+    content: ""; /* Necesario para que ::before se renderice */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* capa para oscurecer la imagen */
+    z-index: 1; /* Coloca la capa (overlay) oscura encima de la imagen */
+}
+
+
+/* estilo Academy  */
+.welcome-container .Academy-titulo {
+    font-family: serif-medium;
+    position: absolute; /* Asegúrate de que esté posicionado sobre la imagen */
+    top: 23%; /* Reduce este valor para subir el texto */
+    left: 35%; /* Centra horizontalmente */
+    color: #c79c60;   
+    font-size: 3.8rem; /* Ajusta el tamaño del texto */
+    font-weight: 200;
+    letter-spacing: 2px;
+    text-align: center; /* Centra el texto */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Agrega sombra para mejor visibilidad */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    z-index: 2; /* Coloca el texto encima de la capa (overlay) */
+}
+
+/* estilo lineas */
+.linea {
+    display: inline-block;
+    width: 50px; /* Ajusta el ancho de la línea */
+    height: 5px; /* Ajusta el grosor de la línea */
+    background-color:white; /* Color de la línea */
+    margin: 0 10px; /* Espaciado entre la línea y el texto */
+    vertical-align: middle; /* Alinea la línea con el texto */
+    border-radius: 50px; /* Hace que los bordes sean redondeados */
+}
  /* -----------------------------------------------------------------------------------
-                                        FIN HEADER 
+                                            HEADER Y WELLCOME AREA GENERAL
 --------------------------------------------------------------------------------------*/
+
+ /* -----------------------------------------------------------------------------------
+                                            HOME PAGE
+--------------------------------------------------------------------------------------*/
+
+/* estilo welcome to */
+.welcome-container .welcome-to-titulo {
+    align-items: center; /* Centra el texto */
+    text-align: center; /* Centra el texto */
+    position: absolute; /* Asegura que el texto esté posicionado sobre la imagen */
+    top: 13%; /* Ajusta la posición vertical del texto */
+    left: 39%; /* Centra horizontalmente */
+    color: white; /* Asegura que el texto sea visible */
+    font-weight: 200; /* Peso de la fuente */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    font-size: 3.5rem; /* Ajusta el tamaño del texto */
+    font-family: damion; /* Asegúrate de que la fuente esté cargada */
+    z-index: 3; /* Coloca el texto encima del overlay */
+}
+
+/* -----------------------------------------------------------------------------------
+                                            FIN HOME PAGE
+--------------------------------------------------------------------------------------*/
+
+/* -----------------------------------------------------------------------------------
+                                            NOSOTROS
+--------------------------------------------------------------------------------------*/
+/* estilo welcome to */
+.welcome-container .nosotros-titulo {
+    text-align: center; /* Centra el texto */
+    position: absolute; /* Asegura que el texto esté posicionado sobre la imagen */
+    top: 13%; /* Ajusta la posición vertical del texto */
+    left: 36%; /* Centra horizontalmente */
+    color: white; /* Asegura que el texto sea visible */
+    font-weight: 200; /* Peso de la fuente */
+    letter-spacing: 2px; /* Espaciado entre letras */
+    font-size: 3.5rem; /* Ajusta el tamaño del texto */
+    font-family: damion; /* Asegúrate de que la fuente esté cargada */
+    z-index: 3; /* Coloca el texto encima del overlay */
+}
