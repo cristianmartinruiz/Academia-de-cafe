@@ -1,86 +1,114 @@
+:root {
+    --color-fondo: #e4e4e4;
+    --color-principal: #c79c60;
+    --color-secundario: #686868;
+    --color-blanco: #ffffff;
+    --color-negro: #000000;
+
+    --fuente-principal: 'Open Sans', sans-serif;
+    --fuente-logo: 'Damion', cursive;
+    --fuente-hero: 'Hero', sans-serif;
+
+    --sombra-box: 0px 0px 30px rgba(0, 0, 0, 0.08);
+
+    --radio-borde: 10px;
+
+}
+
+
+
+html,
 body {
-    font-family: Hero;
+    overflow-x: hidden;
+    /* Previene scroll horizontal */
+    font-family: var(--fuente-hero);
     margin: 0;
     padding: 0;
 }
+
 @font-face {
     font-family: 'Hero';
     src: url('../fonts/HeroLight-Bold.woff2') format('woff2'),
-         url('../fonts/HeroLight-Bold.woff') format('woff');
+        url('../fonts/HeroLight-Bold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-  }
- 
- /* -----------------------------------------------------------------------------------
+}
+
+/* -----------------------------------------------------------------------------------
                                             HEADER Y WELLCOME AREA GENERAL
 --------------------------------------------------------------------------------------*/
-/* Estilos general para el header */
-#header {
-    font-family: Hero;
-    max-width: 100%; /* Ancho máximo del header */
-    height: 100px; /* Altura del header */
-    top: 0; /* Posición en la parte superior */
-    background-color: black; /* Fondo */
-    color: white; /* Color del texto */
-}    
 
-/* Estilo de la caja que contiene el logo y los botones */
-#header .box-header {
+.mi-navbar {
+    font-family: var(--fuente-hero);
+    background-color: var(--color-negro);
+    padding: 1rem 0;
+}
+
+.mi-navbar .container-fluid {
+    max-width: 1000px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
+    justify-content: center; /* Centra horizontalmente todo */
+    gap: 2rem;
+}
+
+.mi-navbar .navbar-collapse {
+    flex-grow: 0; /* Evita que empuje el contenido */
+}
+
+.mi-navbar .navbar-nav {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
-    gap: 100px; /* Reduce el espacio entre el logo y el menú */
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    width: 100%;
-    height: 100px;
+    align-items: center;
+    gap: 2rem;
 }
 
-/* Estilo de los botones */
-#header a {
-    padding: 0; /* Elimina el padding predeterminado */
-    margin: 0; /* Elimina el margen predeterminado */
-    text-decoration: none; /* Elimina el subrayado de los enlaces */
-    text-transform: uppercase;    
-    color: white; /* Color del texto */
-    font-size: 15px; /* Tamaño de la fuente */
-    font-weight: 200; /* Peso de la fuente */
+.mi-navbar .nav-link {
+    color: var(--color-blanco);
+    transition: color 0.3s ease;
+    background-color: transparent;
 }
 
-#header ul {
-    display: flex; /* Hace que los elementos del menú estén en línea */
-    list-style: none; /* Elimina los puntos de la lista */
-    gap: 40px; /* Aumenta el espacio entre los elementos */
+.mi-navbar .nav-link:hover,
+.mi-navbar .nav-link:focus {
+    color: var(--color-principal) !important;
+    background-color: transparent !important;
+    text-decoration: underline;
 }
 
-#header li a:hover, li a:focus {  
-  color: #c79c60;
-  text-decoration: none;
-}
-
-#header li a.active {  
-    color: #c79c60;
+.mi-navbar .nav-link.active,
+.mi-navbar .nav-link.active:hover,
+.mi-navbar .nav-link.active:focus {
+    color: var(--color-principal) !important;
+    font-weight: bold;
+    border-bottom: 2px solid var(--color-principal);
+    background-color: transparent !important;
     text-decoration: none;
 }
 
- /* ------------------------------------------------------------------------------------*/
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+
+/* -------------------------------WELCOME AREA-----------------------------------------------------*/
 
 
 /* contenedor general */
 .welcome-container {
-    position: relative; /* Hace que los elementos hijos con position: absolute se posicionen relativos a este contenedor */
+    position: relative;/* Hace que los elementos hijos con position: absolute se posicionen relativos a este contenedor */
     width: 100%;
-    height: 100vh; /* La altura será igual a la altura de la pantalla */
-    overflow: hidden; /* Asegura que no haya contenido que se salga del contenedor */
+    height: 100vh;/* La altura será igual a la altura de la pantalla */
+    overflow: hidden;/* Asegura que no haya contenido que se salga del contenedor */
 }
 
 /* contenedor imagen */
 .welcome-container img {
     width: 100%;
-    height: 100%; /* La imagen ocupará toda la altura del contenedor */
-    object-fit: cover; /* Asegura que la imagen se recorte proporcionalmente para llenar el contenedor */
-    display: block; /* Elimina el espacio extra debajo de la imagen */
+    height: 100%;/* La imagen ocupará toda la altura del contenedor */
+    object-fit: cover;/* Asegura que la imagen se recorte proporcionalmente para llenar el contenedor */
+    display: block;/* Elimina el espacio extra debajo de la imagen */
 }
 
 /* capa (overlay) oscura encima de la imagen */
@@ -91,63 +119,74 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* capa para oscurecer la imagen */
-    z-index: 1; /* Coloca la capa (overlay) oscura encima de la imagen */
-}
-
-
-/* estilo Academy  */
-.welcome-container .Academy-titulo {
-    font-family: serif-medium;
-    position: absolute; /* Asegúrate de que esté posicionado sobre la imagen */
-    top: 23%; /* Reduce este valor para subir el texto */
-    left: 35%; /* Centra horizontalmente */
-    color: #c79c60;   
-    font-size: 3.8rem; /* Ajusta el tamaño del texto */
-    font-weight: 200;
-    letter-spacing: 2px;
-    text-align: center; /* Centra el texto */
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Agrega sombra para mejor visibilidad */
-    text-transform: uppercase; /* Convierte el texto a mayúsculas */
-    z-index: 2; /* Coloca el texto encima de la capa (overlay) */
+    background-color: rgba(0, 0, 0, 0.5);/* capa para oscurecer la imagen */
+    z-index: 1;/* Coloca la capa (overlay) oscura encima de la imagen */
 }
 
 /* estilo lineas */
 .linea {
     display: inline-block;
     width: 50px; /* Ajusta el ancho de la línea */
-    height: 5px; /* Ajusta el grosor de la línea */
-    background-color:white; /* Color de la línea */
-    margin: 0 10px; /* Espaciado entre la línea y el texto */
+    height: 5px;/* Ajusta el grosor de la línea */
+    background-color: var(--color-blanco);/* Color de la línea */
+    margin: 0 10px;/* Espaciado entre la línea y el texto */
     vertical-align: middle; /* Alinea la línea con el texto */
-    border-radius: 50px; /* Hace que los bordes sean redondeados */
+    border-radius: 50px;/* Hace que los bordes sean redondeados */
 }
- /* -----------------------------------------------------------------------------------
+
+/* -----------------------------------------------------------------------------------
                                             HEADER Y WELLCOME AREA GENERAL
 --------------------------------------------------------------------------------------*/
 
- /* -----------------------------------------------------------------------------------
+/* -----------------------------------------------------------------------------------
                                             HOME PAGE AREA
 --------------------------------------------------------------------------------------*/
 
-/* estilo welcome to */
-.welcome-container .welcome-to-titulo {
-    justify-content: center; /* Centra el texto */
-    text-align: center; /* Centra el texto */
-    position: absolute; /* Asegura que el texto esté posicionado sobre la imagen */
-    top: 13%; /* Ajusta la posición vertical del texto */
-    left: 39%; /* Centra horizontalmente */
-    color: white; /* Asegura que el texto sea visible */
-    font-weight: 200; /* Peso de la fuente */
-    letter-spacing: 2px; /* Espaciado entre letras */
-    font-size: 3.5rem; /* Ajusta el tamaño del texto */
-    font-family: damion; /* Asegúrate de que la fuente esté cargada */
-    z-index: 3; /* Coloca el texto encima del overlay */
+/* Asegúrate de que el contenedor tenga position: relative */
+.welcome-container {
+    position: relative;
 }
 
-/* estilo quiero ser barista */
+/* Centramos todo el texto */
+.welcome-container .texto-central-welcome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 3;
+}
+
+/* h1 y h2 limpios */
+.welcome-container .texto-central-welcome h1,
+.welcome-container .texto-central-welcome h2 {
+    margin: 0;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+/* Tamaños y ajustes opcionales */
+.welcome-container .texto-central-welcome h1 {
+    color: var(--color-blanco);
+    font-family: damion;
+    font-size: 3.5rem;
+}
+
+.welcome-container .texto-central-welcome h2 {
+    color: var(--color-principal);
+    text-transform: uppercase;
+    font-family: serif-medium;
+    font-size: 4rem;
+}
+
+/* -------------------------------- */
+/* estilo welcome to */
+
+
+
+/* ---------------estilo quiero ser barista-------------------------------------------*/
 .container-barista {
-    background-color: #e4e4e4; /* Color de fondo */
+    background-color: var(--color-fondo);
     width: 100%;
     height: auto;
 }
@@ -155,253 +194,246 @@ body {
 .container-texto-barista {
     max-width: 950px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente */
-    align-items: start; /* Centra los elementos horizontalmente */
-    justify-content: flex-start; /* Alinea los elementos al inicio verticalmente */
-    gap: 20px; /* Espacio entre los elementos */
-    width: 100%;
-    height: auto;
     padding: 20px;
-    margin: 0 auto;
 }
 
-.container-texto-barista  h2 {
-    padding-top: 130px; /* Espacio superior */
-    font-size: 30px; /* Ajusta el tamaño del texto */
-    max-width: 1000px;
-    text-align: start; 
-    margin: 0 auto;
-    color: #c79c60;
+.barista-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding-top: 130px;
 }
 
-.container-texto-barista  .linea-barista {
-    max-width: 1000px;
-    text-align: start; /* Centra el texto */
-    margin: 0 auto;
-    display: inline-block;
-    width: 500px; /* Ajusta el ancho de la línea */
-    height: 1px; /* Ajusta el grosor de la línea */
-    background-color: #c79c60; /* Color de la línea */
-    margin: 0 10px; /* Espaciado entre la línea y el texto */
-    vertical-align: middle; /* Alinea la línea con el texto */
+.barista-cabecera h2 {
+    font-size: 30px;
+    color: var(--color-principal);
+    white-space: nowrap;/* Previene saltos de línea */
+    margin: 0;
 }
 
-.container-texto-barista  p {
-    padding-top: 5px; /* Espacio superior */
+.linea-barista {
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--color-principal);
+}
+
+.container-texto-barista p {
+    padding-bottom: 20px;
+    padding-top: 15px;/* Espacio superior */
     max-width: 750px;
     justify-content: start;
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px; /* Ajusta el tamaño del texto */
+    font-size: 14px;
     font-weight: 100;
-    text-align: start; /* Centra el texto */
-    color: #686868; /* Color del texto */
+    text-align: start;
+    color: var(--color-secundario);
 }
 
 .container-texto-barista ul {
-    margin-top: -13px; /* Ajusta el valor para mover el <ul> más arriba */
-    margin-bottom: -20px; /* Ajusta el valor para mover el <ul> más abajo */
-    padding: 0; /* Mantén el relleno eliminado si no lo necesitas */
-    list-style: disc; /* Asegúrate de que los puntos estén visibles */
-    list-style-position: inside; /* Coloca los puntos dentro del contenedor */
+    margin-top: -13px;
+    margin-bottom: 20px;
+    padding: 0;/* Mantén el relleno eliminado si no lo necesitas */
+    list-style: disc;/* Asegúrate de que los puntos estén visibles */
+    list-style-position: inside;/* Coloca los puntos dentro del contenedor */
     display: flex;
     flex-direction: column;
-    gap: 5px; /* Espacio entre los elementos de la lista */
+    gap: 5px;/* Espacio entre los elementos de la lista */
 }
 
 .container-texto-barista li {
-    margin: 1px 0; /* Reduce el espacio vertical entre los elementos */
+    margin: 1px 0;/* Reduce el espacio vertical entre los elementos */
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px; /* Ajusta el tamaño del texto */
+    font-size: 14px;/* Ajusta el tamaño del texto */
     font-weight: 100;
-    text-align: start; /* Alinea el texto al inicio */
-    color: #686868; /* Color del texto */
+    text-align: start;/* Alinea el texto al inicio */
+    color: var(--color-secundario);/* Color del texto */
 }
+
 .container-texto-barista li::marker {
-    color: #c79c60; /* Cambia el color de los puntos */
+    color: var(--color-principal);/* Cambia el color de los puntos */
 }
 
 .container-texto-barista a {
-    background-image: url('img/boton.png'); /* Usa la imagen como fondo */
-    background-size: cover; /* Asegúrate de que la imagen cubra todo el botón */
-    background-position: center; /* Centra la imagen dentro del botón */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-image: url('img/boton.png');
+    background-size: cover;/* Asegúrate de que la imagen cubra todo el botón */
+    background-position: center;/* Centra la imagen dentro del botón */
+    background-repeat: no-repeat;/* Evita que la imagen se repita */
     display: flex;
-    justify-content: center; /* Centra el contenido horizontalmente */
-    align-items: center; /* Centra el contenido verticalmente */
-    margin-top: 20px; /* Espacio superior */
-    width: 223px; /* Ancho del botón */
-    height: 50px; /* Alto del botón */
-    text-decoration: none; /* Elimina el subrayado del enlace */
-    color: #c79c60; /* Color del texto */
-    font-family: 'Open Sans', sans-serif; /* Fuente del texto */
-    font-size: 16px; /* Tamaño del texto */
-    text-align: center; /* Centra el texto */
-    text-transform: uppercase; /* Convierte el texto a mayúsculas */
-    font-weight: 600; /* Peso del texto */
-    border-radius: 15px; /* Bordes redondeados */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); /* Sombra suave */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave */
-    background-color: transparent; /* Asegúrate de que no haya un color de fondo adicional */
+    justify-content: center;/* Centra el contenido horizontalmente */
+    align-items: center;/* Centra el contenido verticalmente */
+    margin-top: 20px;/* Espacio superior */
+    width: 223px;/* Ancho del botón */
+    height: 50px;/* Alto del botón */
+    text-decoration: none;/* Elimina el subrayado del enlace */
+    color: #c79c60;/* Color del texto */
+    font-family: 'Open Sans', sans-serif;/* Fuente del texto */
+    font-size: 16px;/* Tamaño del texto */
+    text-align: center;/* Centra el texto */
+    text-transform: uppercase;/* Convierte el texto a mayúsculas */
+    font-weight: 600;/* Peso del texto */
+    border-radius: 15px;/* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);/* Sombra suave */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;/* Transición suave */
+    background-color: transparent;/* Asegúrate de que no haya un color de fondo adicional */
 }
 
 .container-texto-barista a:hover {
-    transform: translateY(-3px); /* Eleva ligeramente el botón al pasar el mouse */
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    transform: translateY(-3px);/* Eleva ligeramente el botón al pasar el mouse */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);/* Sombra más pronunciada */
 }
 
+/* --------------- fin estilo quiero ser barista-------------------------------------------*/
 
-/* estilo mas escuelas */
+
+
+/* ---------------estilo mas escuelas-------------------------------------------*/
+
+/* Estilo caja titulo */
+
+.container-titulo-escuelas {
+    padding-top: 0px;
+    background-color: var(--color-fondo);
+    width: 100%;
+    height: auto;
+}
+
 .container-texto-escuelas {
     max-width: 950px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente */
-    align-items: start; /* Centra los elementos horizontalmente */
-    justify-content: flex-start; /* Alinea los elementos al inicio verticalmente */
-    gap: 20px; /* Espacio entre los elementos */
-    width: 100%;
-    height: auto;
     padding: 20px;
-    margin: 0 auto;
 }
 
-.container-barista .container-texto-escuelas .linea-escuelas {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: inline-block;
-    width: 690px; /* Ajusta el ancho de la línea */
-    height: 1px; /* Ajusta el grosor de la línea */
-    background-color: #c79c60; /* Color de la línea */
-    margin: 0 10px; /* Espaciado entre la línea y el texto */
-    vertical-align: middle; /* Alinea la línea con el texto */
-}
-
-.container-barista .container-texto-escuelas  h2 {
-    padding-top: 30px; /* Espacio superior */
-    font-size: 30px; /* Ajusta el tamaño del texto */
-    max-width: 1000px;
-    text-align: start; 
-    margin: 0;
-    color: #c79c60;
-}
-
-/* Estilo general cajas escuelas */
-.contenedor-general-escuelas {
+.escuelas-cabecera {
     display: flex;
-    flex-wrap: wrap; /* Permite que los elementos se ajusten a la siguiente línea */
-    justify-content: center; /* Centra los elementos horizontalmente */
-    gap: 20px; /* Espacio entre los elementos */
-    max-width: 1000px; /* Ancho máximo del contenedor */
-    margin: 0 auto; /* Centra el contenedor en la página */
+    align-items: center;
+    justify-content: start;
+    flex-wrap: nowrap;
+    gap: 20px;
+    padding-top: 130px;
 }
+
+.escuelas-cabecera h2 {
+    font-size: 30px;
+    color: var(--color-principal);
+    white-space: nowrap;/* Previene saltos de línea */
+    margin: 0;
+}
+
+.linea-escuelas {
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--color-principal);
+}
+
+/* Estilo cajas escuelas */
 
 .contenedor-escuelas {
-    background-color: white; /* Color de fondo */
-    background-size: 100%;
-    width: 265px;
-    height: 360px; /* Ajusta la altura del contenedor */
-    margin-top: 30px;  
-    margin-bottom: 40px;
-    padding: 20px; /* Añade padding para dar espacio interno */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06); /* Sombra suave */
-    border-radius: 10px; /* Opcional: Bordes redondeados */
-    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Transición suave */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 60px;
+    padding: 40px 0;/* opcional */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.escuela {
+    flex: 1;
+    background-color: var(--color-blanco);
+    border-radius: 20px;
+    padding: 20px 20px 50px;/* más alto por arriba y abajo */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);/* sombra sutil */
+    text-align: center;
 }
 
 .contenedor-escuelas h3 {
-    font-size: 23px; /* Tamaño del texto */
-    font-weight: 400; /* Peso de la fuente */
-    text-align: center; /* Centra el texto */
-    color: #c79c60; /* Color del texto */
+    font-size: 23px;/* Tamaño del texto */
+    font-weight: 400;/* Peso de la fuente */
+    text-align: center;/* Centra el texto */
+    color: var(--color-principal);/* Color del texto */
 }
 
 .contenedor-escuelas hr {
-    align-items: center; /* Centra el elemento */
-    width: 230px; /* Ancho de la línea */
-    border: 0; /* Elimina el borde predeterminado */
-    height: 1px; /* Grosor de la línea */
-    border-bottom: 1px solid #eee; /* Color de la línea */
-    margin: 0 auto; /* Espacio superior e inferior */
+    align-items: center;/* Centra el elemento */
+    width: 230px;/* Ancho de la línea */
+    border: 0;/* Elimina el borde predeterminado */
+    height: 1px;/* Grosor de la línea */
+    border-bottom: 1px solid #eee;/* Color de la línea */
+    margin: 0 auto;/* Espacio superior e inferior */
 }
 
 .contenedor-escuelas p {
-    max-width: 210px; /* Ancho máximo del texto */
-    margin: 22px auto 0 auto; /* Agrega un margen superior de 10px */
+    max-width: 210px;/* Ancho máximo del texto */
+    margin: 22px auto 0 auto;/* Agrega un margen superior de 10px */
     font-family: 'Open Sans', sans-serif;
-    font-size: 14px; /* Ajusta el tamaño del texto */
+    font-size: 14px;/* Ajusta el tamaño del texto */
     font-weight: 100;
-    text-align: center; /* Alinea el texto al centro */
-    color: #686868; /* Color del texto */
+    text-align: center;/* Alinea el texto al centro */
+    color: var(--color-secundario);/* Color del texto */
 }
 
 .contenedor-escuelas img {
-    border-radius: 10px; /* Bordes redondeados */
-    width: 100%; /* Ajusta el ancho para que ocupe todo el contenedor */
-    height: auto; /* Mantiene la proporción de la imagen */
-    object-fit: cover; /* Asegura que la imagen se ajuste al contenedor sin deformarse */
-}
-  
-.contenedor-escuelas:hover {
-    transform: translateY(-5px); /* Eleva ligeramente el contenedor al pasar el mouse */
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+    padding-bottom: 50px;/* Espacio inferior */
+    border-radius: 10px;/* Bordes redondeados */
+    width: 100%;/* Ajusta el ancho para que ocupe todo el contenedor */
+    height: auto;/* Mantiene la proporción de la imagen */
+    object-fit: cover;/* Asegura que la imagen se ajuste al contenedor sin deformarse */
 }
 
-/* 
-/* Carrusel reseñas */
-/* estilo mas escuelas */
+.escuela:hover {
+    transform: translateY(-5px);/* Eleva ligeramente el contenedor al pasar el mouse */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.1);/* Sombra más pronunciada */
+}
+
+/* ---------------fin estilo mas escuelas-------------------------------------------*/
+
+
+
+/* ---------------Carrusel reseñas-------------------------------------------*/
+
 .container-texto-reseñas {
+    padding-top: -200px;
     max-width: 950px;
     margin: 0 auto;
+}
+  
+.reseñas-cabecera {
     display: flex;
-    flex-direction: column; /* Apila los elementos verticalmente */
-    align-items: start; /* Centra los elementos horizontalmente */
-    justify-content: flex-start; /* Alinea los elementos al inicio verticalmente */
-    gap: 20px; /* Espacio entre los elementos */
-    width: 100%;
-    height: auto;
-    padding: 20px;
-    margin: 0 auto;
+    align-items: center;
+    gap: 20px;
+    padding-top: 130px;
+    flex-wrap: nowrap;
 }
-
-.container-texto-reseñas .linea-reseñas {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: inline-block;
-    width: 790px; /* Ajusta el ancho de la línea */
-    height: 1px; /* Ajusta el grosor de la línea */
-    background-color: #c79c60; /* Color de la línea */
-    margin: 0 10px; /* Espaciado entre la línea y el texto */
-    vertical-align: middle; /* Alinea la línea con el texto */
-}
-
-.container-texto-reseñas  h2 {
-    padding-top: 30px; /* Espacio superior */
-    font-size: 30px; /* Ajusta el tamaño del texto */
-    max-width: 1000px;
-    text-align: start; 
+  
+.reseñas-cabecera h2 {
+    font-size: 30px;
+    color: var(--color-principal);
+    white-space: nowrap;
     margin: 0;
-    color: #c79c60;
 }
+  
+.linea-reseñas {
+    flex-grow: 1;
+    height: 1px;
+    background-color: var(--color-principal);
+}
+  
 
 
 
-
-
-/* ---------------------------CARRUSEL RESEÑAS---------------------------------------- */
+/* ---------------------------CARRUSEL ALUMNOS---------------------------------------- */
 .reseñas {
-    max-width: 960px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    padding: 20px;
 }
-  
+
 .reseñas-container {
-    padding: 0 10vw;
+    padding: 2vw 10vw;
     display: flex;
-    overflow-x: auto;
-    scroll-behavior: smooth;
+    overflow-x: auto;/* scroll-behavior: smooth; */
 }
 
 .reseñas-card {
@@ -411,61 +443,68 @@ body {
     margin-right: 40px;
     position: relative;
 }
-  
+
 .reseñas-imagenes {
     position: relative;
     width: 100%;
     height: 350px;
     overflow: hidden;
 }
-  
+
 .reseñas-thumb {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-  
+
 .reseñas-info {
     max-width: 125px;
     position: absolute;
-    bottom: 160px; /* Ajusta este valor para bajar el texto */
-    left: 50%; /* Centra horizontalmente */
-    transform: translateX(-50%); /* Ajusta para centrar correctamente */
-    padding: 0; /* Elimina el padding */
-    background: none; /* Elimina el fondo gris */
-    color: rgb(171, 170, 170); /* Mantén el color del texto */
-    text-align: center; /* Centra el texto */
+    bottom: 160px;/* Ajusta este valor para bajar el texto */
+    left: 50%;/* Centra horizontalmente */
+    transform: translateX(-50%);/* Ajusta para centrar correctamente */
+    padding: 0;/* Elimina el padding */
+    background: none;/* Elimina el fondo gris */
+    color: rgb(171, 170, 170);/* Mantén el color del texto */
+    text-align: center;/* Centra el texto */
     box-sizing: border-box;
 }
-  
+
 .reseñas-info h3 {
     margin: 0;
     font-size: 13px;
     font-weight: 500;
 }
-  
+
 .reseñas-info p {
     margin: 5px 0 0;
     font-size: 12px;
 }
-  
-.pre-btn, .nxt-btn {
+
+.botones-pre-next {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    max-width: 1000px;
+    width: 100%;
+}
+
+.pre-btn,
+.nxt-btn {
+    position: absolute;
+    top: 55%;
+    transform: translateY(350%);
     background: rgba(0, 0, 0, 0.5);
     border: none;
     padding: 10px;
     cursor: pointer;
     z-index: 1;
-    color: white;
+    color: var(--color-blanco);
     font-size: 24px;
 }
-  
+
 .pre-btn {
-    left: 10px;
+    left: -10px;
 }
-  
+
 .nxt-btn {
     right: 10px;
 }
@@ -474,98 +513,80 @@ body {
 
 /* Estilo general del footer */
 .footer-container {
-    display: flex; /* Activa Flexbox */
-    justify-content: center; /* <-- Evita el centrado vertical */
-    align-items: flex-start; /* Alinea las cajas al inicio verticalmente */
-    background-color: #444749; /* Color de fondo */
-    padding: 50px; /* Espacio interno */
-    font-family: 'Open Sans', sans-serif; /* Fuente del texto */
+    overflow-x: hidden;
+    position: relative;
+    display: flex;/* Activa Flexbox */
+    justify-content: center;
+    align-items: flex;/* Alinea las cajas al inicio verticalmente */
+    background-color: #444749;/* Color de fondo */
+    padding: 50px;/* Espacio interno */
+    font-family: 'Open Sans', sans-serif;/* Fuente del texto */
 }
 
-/* Estilo de las caja box1*/
-.footer-container .box1{
+/* Estilo de las caja boxs */
+.footer-container .box1, .box2, .box3 {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;   /* Centra horizontalmente el contenido */
-    justify-content: center; /* <-- Evita el centrado vertical */
-    text-align: left;
+    align-items: flex-start;
+    justify-content: center;
     flex: 1;
-    padding-left: 160px;
-    margin: 0 10px;
+    margin: 0 0px;
 }
-
-/* Estilo de las cajas */
-.footer-container .box2,
-.footer-container .box3 {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;   /* Centra horizontalmente el contenido */
-    justify-content: center; /* <-- Evita el centrado vertical */
-    text-align: left;
-    flex: 1;
-    padding-left: 160px;
-    padding-top: 30px;
-    margin: 0 10px;
-}
-
 
 /* Estilo de los títulos */
 .footer-container h3 {
-    padding-bottom: 18px; /* Espacio inferior */
-    margin: 0; /* Elimina cualquier margen superior e inferior */
-    color: white; /* Cambia el color del texto a blanco */
-    font-size: 18px; /* Ajusta el tamaño del texto */
-    font-weight: bold; /* Aplica negrita para destacar */
-    text-align: left; /* Alinea el texto al margen izquierdo */
+    padding-bottom: 1px;/* Espacio inferior */
+    margin: 0;/* Elimina cualquier margen superior e inferior */
+    color: var(--color-blanco);
+    font-size: 18px;/* Ajusta el tamaño del texto */
+    font-weight: bold;/* Aplica negrita para destacar */
+    text-align: left;/* Alinea el texto al margen izquierdo */
 }
 
 /* Estilo de los p en box 1 */
 .box1 p {
-    margin: 0; /* Elimina cualquier margen superior e inferior */
-    padding: 0; /* Elimina cualquier padding */
-    color: rgb(127, 126, 126); /* Cambia el color del texto a blanco */
-    font-size: 10px; /* Ajusta el tamaño del texto */
-    text-align: left; /* Alinea el texto al margen izquierdo */
+    margin: 0;/* Elimina cualquier margen superior e inferior */
+    padding: 0;/* Elimina cualquier padding */
+    color: rgb(127, 126, 126);
+    font-size: 10px;/* Ajusta el tamaño del texto */
+    text-align: left;/* Alinea el texto al margen izquierdo */
 }
 
 /* Estilo de los p en box2 */
 .box2 p {
-    margin-bottom: 2px;
-    padding: 0; /* Elimina cualquier padding */
-    line-height: 17px;
-    color: rgb(127, 126, 126); /* Cambia el color del texto a blanco */
-    font-size: 12px; /* Ajusta el tamaño del texto */
-    text-align: left; /* Alinea el texto al margen izquierdo */
+    margin-top: 15px;/* Espacio superior */
+    margin-bottom: 0px;
+    line-height: 15px;
+    color: rgb(127, 126, 126);
+    font-size: 12px;/* Ajusta el tamaño del texto */
+    text-align: left;/* Alinea el texto al margen izquierdo */
 }
 
 /* Estilo de los p en box3 */
 .box3 p {
-    margin: 0; /* Elimina cualquier margen superior e inferior */
-    padding-bottom: 18px; /* Espacio inferior */
-    color: rgb(127, 126, 126); /* Cambia el color del texto a blanco */
-    font-size: 12px; /* Ajusta el tamaño del texto */
-    text-align: left; /* Alinea el texto al margen izquierdo */
+    padding-top: 15px;
+    margin: 0;/* Elimina cualquier margen superior e inferior */
+    padding-bottom: 15px;/* Espacio inferior */
+    color: rgb(127, 126, 126);
+    font-size: 12px;/* Ajusta el tamaño del texto */
+    text-align: left;/* Alinea el texto al margen izquierdo */
 }
 
 /* Estilo del formulario en la caja 3 */
 .footer-container .box3 form {
-    border: 3px white;
-
+    border: 3px var(--color-blanco);
     position: relative;
     width: fit-content;
 }
 
-
-
-.footer-container .box3 form input{
-    border: 3px white;
+.footer-container .box3 form input {
+    border: 3px var(--color-blanco);
     background-color: #686868;
-    padding-right: 20px; /* espacio para el botón */
+    padding-right: 20px;/* espacio para el botón */
     padding-left: 10px;
     height: 40px;
     font-size: 16px;
-  }
-   
+}
 
 .footer-container .box3 form button {
     position: absolute;
@@ -577,45 +598,43 @@ body {
 }
 
 .footer-container .box3 form button {
-    background-color: #686868; /* Fondo dorado */
-    color: white; /* Texto blanco */
+    background-color: #686868;/* Fondo dorado */
+    color: var(--color-blanco);/* Texto blanco */
 }
 
-
 .footer-container .box3 form button:hover {
-    background-color: #444749;  /* Fondo más oscuro al pasar el mouse */
+    background-color: #444749;/* Fondo más oscuro al pasar el mouse */
 }
 
 /* Contenedor de los íconos sociales */
 .social-icons {
-    padding-bottom: 18px; /* Espacio inferior */
-    display: flex; /* Activa Flexbox */
-    justify-content: start; /* Centra los íconos horizontalmente */
-    gap: 20px; /* Espacio entre los íconos */
-    margin-top: 20px; /* Espacio superior */
+    padding-bottom: 18px;/* Espacio inferior */
+    display: flex;/* Activa Flexbox */
+    justify-content: start;/* Centra los íconos horizontalmente */
+    gap: 20px;/* Espacio entre los íconos */
+    margin-top: 20px;/* Espacio superior */
 }
 
 /* Estilo de los enlaces de los íconos */
 .social-icons a {
     display: flex;
-    justify-content: center; /* Centra el ícono dentro del círculo */
-    align-items: center; /* Centra el ícono verticalmente */
-    width: 50px; /* Ancho del círculo */
-    height: 50px; /* Alto del círculo */
+    justify-content: center;/* Centra el ícono dentro del círculo */
+    align-items: center;/* Centra el ícono verticalmente */
+    width: 50px;/* Ancho del círculo */
+    height: 50px;/* Alto del círculo */
     background-color: #555555; /* Fondo oscuro del círculo */
-    color: white; /* Color del logo */
-    font-size: 24px; /* Tamaño del ícono */
-    border-radius: 50%; /* Hace que el fondo sea redondo */
-    text-decoration: none; /* Elimina el subrayado */
+    color: var(--color-blanco);/* Color del logo */
+    font-size: 24px;/* Tamaño del ícono */
+    border-radius: 50%;/* Hace que el fondo sea redondo */
+    text-decoration: none;/* Elimina el subrayado */
     transition: transform 0.3s ease, background-color 0.3s ease; /* Transición suave */
 }
 
 
-
 /* Efecto hover para los íconos */
 .social-icons a:hover {
-    transform: scale(1.1); /* Aumenta ligeramente el tamaño al pasar el mouse */
-    background-color: #555555; /* Cambia el color del fondo al pasar el mouse */
+    transform: scale(1.1);/* Aumenta ligeramente el tamaño al pasar el mouse */
+    background-color: #555555;/* Cambia el color del fondo al pasar el mouse */
 }
 
 
@@ -628,17 +647,28 @@ body {
 --------------------------------------------------------------------------------------*/
 /* estilo welcome to */
 .welcome-container .nosotros-titulo {
-    text-align: center; /* Centra el texto */
-    position: absolute; /* Asegura que el texto esté posicionado sobre la imagen */
-    top: 13%; /* Ajusta la posición vertical del texto */
-    left: 36%; /* Centra horizontalmente */
-    color: white; /* Asegura que el texto sea visible */
-    font-weight: 200; /* Peso de la fuente */
-    letter-spacing: 2px; /* Espaciado entre letras */
-    font-size: 3.5rem; /* Ajusta el tamaño del texto */
-    font-family: damion; /* Asegúrate de que la fuente esté cargada */
-    z-index: 3; /* Coloca el texto encima del overlay */
+    text-align: center;
+    /* Centra el texto */
+    position: absolute;
+    /* Asegura que el texto esté posicionado sobre la imagen */
+    top: 13%;
+    /* Ajusta la posición vertical del texto */
+    left: 36%;
+    /* Centra horizontalmente */
+    color: white;
+    /* Asegura que el texto sea visible */
+    font-weight: 200;
+    /* Peso de la fuente */
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
+    font-size: 3.5rem;
+    /* Ajusta el tamaño del texto */
+    font-family: damion;
+    /* Asegúrate de que la fuente esté cargada */
+    z-index: 3;
+    /* Coloca el texto encima del overlay */
 }
+
 /* -----------------------------------------------------------------------------------
                                             FIN NOSOTROS
 --------------------------------------------------------------------------------------*/
@@ -647,16 +677,26 @@ body {
                                             EMPRESAS
 --------------------------------------------------------------------------------------*/
 .welcome-container .empresas-titulo {
-    text-align: center; /* Centra el texto */
-    position: absolute; /* Asegura que el texto esté posicionado sobre la imagen */
-    top: 13%; /* Ajusta la posición vertical del texto */
-    left: 40%; /* Centra horizontalmente */
-    color: white; /* Asegura que el texto sea visible */
-    font-weight: 200; /* Peso de la fuente */
-    letter-spacing: 2px; /* Espaciado entre letras */
-    font-size: 3.5rem; /* Ajusta el tamaño del texto */
-    font-family: damion; /* Asegúrate de que la fuente esté cargada */
-    z-index: 3; /* Coloca el texto encima del overlay */
+    text-align: center;
+    /* Centra el texto */
+    position: absolute;
+    /* Asegura que el texto esté posicionado sobre la imagen */
+    top: 13%;
+    /* Ajusta la posición vertical del texto */
+    left: 40%;
+    /* Centra horizontalmente */
+    color: white;
+    /* Asegura que el texto sea visible */
+    font-weight: 200;
+    /* Peso de la fuente */
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
+    font-size: 3.5rem;
+    /* Ajusta el tamaño del texto */
+    font-family: damion;
+    /* Asegúrate de que la fuente esté cargada */
+    z-index: 3;
+    /* Coloca el texto encima del overlay */
 }
 
 /* -----------------------------------------------------------------------------------
@@ -667,18 +707,268 @@ body {
                                             FORMACION
 --------------------------------------------------------------------------------------*/
 .welcome-container .formacion-titulo {
-    text-align: center; /* Centra el texto */
-    position: absolute; /* Asegura que el texto esté posicionado sobre la imagen */
-    top: 13%; /* Ajusta la posición vertical del texto */
-    left: 40%; /* Centra horizontalmente */
-    color: white; /* Asegura que el texto sea visible */
-    font-weight: 200; /* Peso de la fuente */
-    letter-spacing: 2px; /* Espaciado entre letras */
-    font-size: 3.5rem; /* Ajusta el tamaño del texto */
-    font-family: damion; /* Asegúrate de que la fuente esté cargada */
-    z-index: 3; /* Coloca el texto encima del overlay */
+    text-align: center;
+    /* Centra el texto */
+    position: absolute;
+    /* Asegura que el texto esté posicionado sobre la imagen */
+    top: 13%;
+    /* Ajusta la posición vertical del texto */
+    left: 40%;
+    /* Centra horizontalmente */
+    color: white;
+    /* Asegura que el texto sea visible */
+    font-weight: 200;
+    /* Peso de la fuente */
+    letter-spacing: 2px;
+    /* Espaciado entre letras */
+    font-size: 3.5rem;
+    /* Ajusta el tamaño del texto */
+    font-family: damion;
+    /* Asegúrate de que la fuente esté cargada */
+    z-index: 3;
+    /* Coloca el texto encima del overlay */
 }
 
 /* -----------------------------------------------------------------------------------
                                             FIN FORMACION
+--------------------------------------------------------------------------------------*/
+
+/* -----------------------------------------------------------------------------------
+                                            VERSION RESPONSIVE
+--------------------------------------------------------------------------------------*/
+@media screen and (max-width: 991px) {
+
+    .mi-navbar .navbar-nav {
+        flex-direction: column !important;
+        width: 100%;
+    }
+    .navbar-collapse {
+        display: none !important;
+    }
+    .navbar-collapse.show {
+        display: block !important;
+    }
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .texto-central-welcome {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 90%;
+    }
+
+    .texto-central-welcome h1 {
+        font-size: 1rem;
+        margin: 0.5rem 0;
+    }
+
+    .texto-central-welcome h2 {
+        font-size: 1.5rem;
+        margin: 0;
+    }
+
+    .container-texto-barista {
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .container-texto-barista p {
+        max-width: 550px;
+    }
+
+    .escuelas-cabecera {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .escuelas-cabecera h2 {
+        white-space: normal;
+    }
+
+    .linea-escuelas {
+        flex-grow: 1;
+        min-width: 40px;
+    }
+
+    .contenedor-escuelas {
+        justify-content: center;
+        max-width: 750px;
+        gap: 10px;
+        margin: 0 auto;
+        padding: 3rem 1rem;
+    }
+
+    .escuela {
+        flex: 1 1 10%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    .reseñas-cabecera {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .reseñas-cabecera h2 {
+        white-space: normal;
+    }
+
+    .linea-reseñas {
+        flex-grow: 1;
+        min-width: 40px;
+    }
+
+    .pre-btn {
+        left: 0px;
+    }
+
+    .nxt-btn {
+        right: 0px;
+    }
+
+    .footer-container {
+        gap: 0px;
+    }
+
+    .footer-container .box2 h3 {
+        margin-bottom: 20px;
+    }
+
+}
+@media screen and (max-width: 767px) {
+
+    .mi-navbar .container-fluid {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+  
+    .mi-navbar .navbar-nav {
+      flex-direction: column !important;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1rem;
+      background-color: var(--color-negro);
+      width: 100%;
+    }
+  
+    .navbar-collapse {
+      display: none !important;
+    }
+  
+    .navbar-collapse.show {
+      display: block !important;
+    }
+  
+    .texto-central-welcome {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      width: 90%;
+    }
+  
+    .texto-central-welcome h1 {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+  
+    .texto-central-welcome h2 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+  
+    .container-texto-barista {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+  
+    .barista-cabecera h2 {
+      text-align: center;
+      max-width: 400px;
+      white-space: normal;
+    }
+  
+    .escuelas-cabecera {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  
+    .escuelas-cabecera h2 {
+      max-width: 400px;
+      text-align: center;
+      white-space: normal;
+    }
+  
+    .contenedor-escuelas {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 750px;
+      gap: 10px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+    }
+  
+    .reseñas-cabecera {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  
+    .reseñas-cabecera h2 {
+      max-width: 400px;
+      text-align: center;
+      white-space: normal;
+      padding-bottom: 50px;
+    }
+  
+    .linea-escuelas,
+    .linea-reseñas {
+      display: none;
+    }
+  
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 50px;
+    }
+
+    .footer-container .box2 h3 {
+        margin-bottom: 5px;
+    }
+    
+  
+    .pre-btn {
+      left: 0;
+    }
+  
+    .nxt-btn {
+      right: 0;
+    }
+  
+  }
+  
+
+
+
+/* -----------------------------------------------------------------------------------
+                                            FIN VERSION RESPONSIVE
 --------------------------------------------------------------------------------------*/
